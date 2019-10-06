@@ -1,0 +1,17 @@
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @member.birth_date %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @member.genre %>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
