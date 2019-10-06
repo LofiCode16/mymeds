@@ -1,32 +1,40 @@
-<%= form_with(model: doc, local: true) do |form| %>
-  <% if doc.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(doc.errors.count, "error") %> prohibited this doc from being saved:</h2>
+<div class="row">
+  <div class="col-lg-4 offset-lg-4"><br/>
 
-      <ul>
+    <%= form_with(model: doc, local: true) do |form| %>
+      <% if doc.errors.any? %>
         <% doc.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+            <%= message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>   
+      <% end %>
 
-  <div class="field">
-    <input type="file" accept="image/*" capture="camera">
-  </div>
+      <div class="field text-center">
+          <label for="camera" id="camera" class="btn btn-outline-info">&#128247; </label>
+          <input type="file" id="camera" style="visibility: hidden; max-width: 10px;"  accept="image/*" capture="camera">
+          <label for="file" class="btn btn-outline-info">&#128209; </label>
+          <input type="file" id="file" style="visibility: hidden; max-width: 10px;">
+      </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div><br/>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+      <div class="field">
+        <%= form.label :content %>
+        <%= form.text_field :content, class: 'form-control' %>
+      </div><br/>
 
-  <div class="actions">
-  
-    <%= form.submit %>
+      <div class="actions text-center">      
+        <%= form.submit "Save!", class:'btn btn-success' %>
+      </div>
+
+    <% end %>
+
   </div>
-<% end %>
+</div>

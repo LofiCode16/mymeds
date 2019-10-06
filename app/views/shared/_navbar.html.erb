@@ -9,20 +9,22 @@
       <li class="nav-item <%= 'active' if current_page?(root_path)%>">
         <%= link_to  "Home", root_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Members
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% if @members.present?%>
-            <% @members.each do |member| %>
-              <%= link_to  member.name, member_path %>
-            <% end %>
-          <% end %>  
-          <div class="dropdown-divider"></div>
-          <%= link_to  "Add member", new_member_path, class: 'dropdown-item' %>
-        </div>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Members
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if @members.present?%>
+              <% @members.each do |member| %>
+                <%= link_to  member.name, member_path %>
+              <% end %>
+            <% end %>  
+            <div class="dropdown-divider"></div>
+            <%= link_to  "Add member", new_member_path, class: 'dropdown-item' %>
+          </div>
+        </li>
+      <% end %>
     </ul>
     <div>
       <% if user_signed_in? %>
@@ -37,8 +39,10 @@
             </div>
           </li>       
       <% else %>
-        <%= link_to  "Login", new_user_session_path %>
-        <%= link_to "Register", new_user_registration_path %>
+        <div class="nav-link">
+          <%= link_to  "Login", new_user_session_path, class: 'mr-3' %>
+          <%= link_to "Register", new_user_registration_path %>
+        </div>
       <% end %>  
     </div>
   </div>
