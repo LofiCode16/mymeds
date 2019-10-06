@@ -18,4 +18,6 @@ Doc.destroy_all
     user_id: 1
   })
 
+
+
 end
