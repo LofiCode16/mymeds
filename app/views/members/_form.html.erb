@@ -1,32 +1,38 @@
-<%= form_with(model: member, local: true) do |form| %>
-  <% if member.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+<div class="row">
+  <div class="col-lg-4 offset-lg-4">
 
-      <ul>
-        <% member.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: member, local: true) do |form| %>
+      <% if member.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+          <ul>
+            <% member.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div><br/>
+
+      <div class="field">
+        <%= form.label :birth_date %>
+        <%= form.date_field :birth_date, class: 'form-control' , autocomplete: "birth_date"  %>
+      </div><br/>
+
+      <div class="field text-center">
+        <%= form.label :genre %>
+        <%= form.select :genre, options_for_select(['Male','Female','Other'], class: 'custom-select') %>
+      </div><br/>
+
+      <div class="actions text-center">
+        <%= form.submit 'Save!', class: 'btn btn-success'  %>
+      </div>
+    <% end %>
+
   </div>
-
-  <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.datetime_select :birth_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

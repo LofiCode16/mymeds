@@ -36,7 +36,18 @@
    <div class="col-lg-2">
 
     <%= link_to 'New date +', new_doc_path, class: 'btn btn-success w-100 mt-4' %>
-    <%= render 'find' %>
+    
+    <div class="card mt-3">
+      <div class="card-header">
+        Date
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Member<%= select_tag :member, options_for_select([["Diego"], ["Cata"], ["Marcelo"]])%></li>
+        <li class="list-group-item">Date <%= date_field_tag (:date) %></li>
+        <li class="list-group-item">Med <%= select_tag :member, options_for_select([["Diego"], ["Cata"], ["Marcelo"]])%></li>
+        <li class="list-group-item">obs <%= text_area_tag :obs %></li>
+      </ul>
+    </div>
 
   </div>
 

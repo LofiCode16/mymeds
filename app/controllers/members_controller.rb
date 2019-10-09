@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.where(user_id: current_user.id)
+    @members = Member.all
   end
 
   # GET /members/1
@@ -26,6 +26,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
+    @member.user_id = current_user.id
 
     respond_to do |format|
       if @member.save
