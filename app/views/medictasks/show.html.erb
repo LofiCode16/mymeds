@@ -1,0 +1,19 @@
+<div class="row">        
+  <div class="col-sm-4 mt-4 offset-md-4">
+  
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= @medictask.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= distance_of_time_in_words_to_now(@medictask.date) %></h6>
+        <p class="card-text"><%= @medictask.content %></p>
+        <p class="card-text"><%= @medictask.medic %></p>
+        <p class="card-text"><%= @medictask.speciality %></p>
+        <%= link_to 'Edit', edit_doc_path(@medictask), class: 'card-link'  %>
+        <%= link_to 'Destroy', @medictask, class: 'card-link', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  
+    <%= link_to 'Edit', edit_medictask_path(@medictask), class: 'link' %> |
+    <%= link_to 'Back', root_path, class: 'btn btn-primary mt-4' %>
+  </div> 
+</div>

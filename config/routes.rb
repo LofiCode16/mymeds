@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :medictasks
   resources :docs
   resources :members
   devise_for :users, controllers: {

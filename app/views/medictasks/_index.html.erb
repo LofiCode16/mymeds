@@ -1,0 +1,16 @@
+<% @medictasks.each do |medictask| %>
+      
+<div class="card">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= medictask.title %></h5>
+    <p class="card-text"><%= medictask.content %></p>
+    <p class="card-text"><%= medictask.date %></p>
+    <p class="card-text"><%= medictask.medic %></p>
+    <p class="card-text"><%= medictask.speciality %></p>
+    <a href="#" class="btn btn-primary">Done</a>     
+  </div>
+</div> 
+
+<% end %>
+

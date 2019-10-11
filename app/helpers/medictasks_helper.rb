@@ -1,0 +1,2 @@
+module MedictasksHelper
+end

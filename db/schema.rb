@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_155535) do
+ActiveRecord::Schema.define(version: 2019_10_11_180036) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 2019_10_11_155535) do
     t.index ["user_id"], name: "index_docs_on_user_id"
   end
 
+  create_table "medictasks", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.datetime "date"
+    t.string "medic"
+    t.string "speciality"
+    t.boolean "done", default: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_medictasks_on_user_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "birth_date"
@@ -72,5 +85,6 @@ ActiveRecord::Schema.define(version: 2019_10_11_155535) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "docs", "users"
+  add_foreign_key "medictasks", "users"
   add_foreign_key "members", "users"
 end

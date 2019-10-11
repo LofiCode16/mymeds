@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :docs, dependent: :destroy     
   has_many :members, dependent: :destroy 
-  has_one_attached :image, dependent: :destroy    
+  has_one_attached :image, dependent: :destroy  
+  has_many :medictasks  
 
 end

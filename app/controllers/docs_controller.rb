@@ -6,6 +6,7 @@ class DocsController < ApplicationController
   # GET /docs.json
   def index
     @docs = Doc.where(user_id: current_user.id)
+    @medictasks = Medictask.where(user_id: current_user.id)
   end
 
   # GET /docs/1
