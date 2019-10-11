@@ -29,7 +29,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="nav-item">Welcome <%= current_user.name %>!</span> 
+              <span class="nav-item"> <%= image_tag current_user.image.variant(resize: "32x32") %> Welcome <%= current_user.name %>!</span> 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item' %>
