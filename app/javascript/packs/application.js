@@ -6,9 +6,9 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
-require("jquery/src/jquery")
+require("jquery/src/jquery.js")
 require("channels")
-require("packs/find_doc")
+require("packs/find_doc.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

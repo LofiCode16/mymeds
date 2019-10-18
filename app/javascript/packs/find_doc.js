@@ -1,4 +1,4 @@
-$(document).on('ready turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
   $('[name=q]').on('keyup', function(){
     //filtra
     if ($(this).val().length > 2){

@@ -1,13 +1,10 @@
 <h1>Docs</h1>
 
-<form class="form-inline">
-          <%= text_field_tag :q %>
-        </form>
 
 <div class="row">
   <div class="col-lg-2">
     </div>
-  </div>
+  
 
   <div class="col-lg-8">
 
@@ -43,7 +40,7 @@
     
     <% @medictasks.each do |medictask| %>
       
-    <div class="card">
+    <div class="card mt-3">
       
       <div class="card-body">
         <h5 class="card-title"><%= medictask.title %></h5>
