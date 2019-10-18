@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-
+  patch 'completed_medictasks/:medictask_id', to: 'completed_medictasks#update', as: 'completed_medictask'
   root to: 'docs#index'
 end
