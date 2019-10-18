@@ -7,6 +7,8 @@ class DocsController < ApplicationController
   def index
     @docs = Doc.where(user_id: current_user.id)
     @medictasks = Medictask.where(user_id: current_user.id)
+
+    @docs = @docs.where("content like ?", "%#{params[:q]}%") if params[:q]
   end
 
   # GET /docs/1
@@ -33,6 +35,7 @@ class DocsController < ApplicationController
       if @doc.save
         format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
         format.json { render :show, status: :created, location: @doc }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @doc.errors, status: :unprocessable_entity }
