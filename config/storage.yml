@@ -12,7 +12,7 @@ amazon:
   access_key_id: <%= ENV['AWS_KEY_MYMEDDOCSAPP'] %>
   secret_access_key: <%= ENV['AWS_SECRET_MYMEDDOCSAPP'] %>
   region: us-east-1
-  bucket: <%= ENV['mymedsbucket'] %>
+  bucket: mymedsbucket
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
