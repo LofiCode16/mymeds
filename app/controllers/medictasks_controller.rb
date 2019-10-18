@@ -41,6 +41,7 @@ class MedictasksController < ApplicationController
   # PATCH/PUT /medictasks/1
   # PATCH/PUT /medictasks/1.json
   def update
+
     respond_to do |format|
       if @medictask.update(medictask_params)
         format.html { redirect_to @medictask, notice: 'Medictask was successfully updated.' }
