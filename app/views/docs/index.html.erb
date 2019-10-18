@@ -1,18 +1,17 @@
 <h1>Docs</h1>
 
+
 <div class="row">
   <div class="col-lg-2">
+    <%= link_to 'New doc +', new_doc_path, class: 'btn btn-success w-100 mt-4' %>
 
-    <%= link_to 'New Doc +', new_doc_path, class: 'btn btn-success w-100 mt-4', id: 'new_doc' %>
-    <div id="doc_form">
-      <%= render 'find' %>
-    </div>
   </div>
+  
 
   <div class="col-lg-8">
 
     <div class="card-deck">
-      <div class="row">
+      <div class="row" id="docs">
         <% @docs.each do |doc| %>
         
           <div class="col-sm-6 mt-4">
@@ -43,7 +42,7 @@
     
     <% @medictasks.each do |medictask| %>
       
-    <div class="card">
+    <div class="card mt-3" id="date">
       
       <div class="card-body">
         <h5 class="card-title"><%= medictask.title %></h5>
@@ -51,7 +50,8 @@
         <p class="card-text"><%= medictask.date %></p>
         <p class="card-text"><%= medictask.medic %></p>
         <p class="card-text"><%= medictask.speciality %></p>
-        <a href="#" class="btn btn-primary">Done</a>     
+
+        <%= link_to  "Done", completed_medictask_path(medictask.id), class: 'btn btn-primary', method: :patch %>   
       </div>
     </div> 
 
