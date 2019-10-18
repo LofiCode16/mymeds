@@ -1,18 +1,18 @@
 <h1>Docs</h1>
 
+<form class="form-inline">
+          <%= text_field_tag :q %>
+        </form>
+
 <div class="row">
   <div class="col-lg-2">
-
-    <%= link_to 'New Doc +', new_doc_path, class: 'btn btn-success w-100 mt-4', id: 'new_doc' %>
-    <div id="doc_form">
-      <%= render 'find' %>
     </div>
   </div>
 
   <div class="col-lg-8">
 
     <div class="card-deck">
-      <div class="row">
+      <div class="row" id="docs">
         <% @docs.each do |doc| %>
         
           <div class="col-sm-6 mt-4">

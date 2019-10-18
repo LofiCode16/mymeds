@@ -8,6 +8,7 @@
 
 Doc.destroy_all
 
+
 20.times do |i|
 
   Doc.create({
