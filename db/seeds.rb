@@ -15,7 +15,7 @@ Doc.destroy_all
     title: "Doc n°#{i}",
     content: "esta es la descripcion del doumento",
     photo: "http://lorempixel.com/400/200/sports/#{i}/",
-    user_id: 1
+    user_id: User.last
   })
 
 
