@@ -29,10 +29,10 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="nav-item"> <%= image_tag current_user.image.variant(resize: '32x32'), class: 'img-thumbnail img-fluid circle rounded-circle' %> Welcome <%= current_user.name %>!</span> 
+              <span class="nav-item"> <%= image_tag current_user.image.variant(resize: '32x32'), class: 'img-thumbnail img-fluid circle rounded-circle' if current_user.image.present? %> Welcome <%= current_user.name %>!</span> 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= image_tag current_user.image.variant(resize: "200x200"), class: 'img-thumbnail rounded mx-auto d-block' %>
+              <%= image_tag current_user.image.variant(resize: "200x200"), class: 'img-thumbnail rounded mx-auto d-block' if current_user.image.present?%>
               <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to  "Logout", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
             </div>
