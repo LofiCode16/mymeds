@@ -8,7 +8,7 @@ class DocsController < ApplicationController
     @docs = Doc.where(user_id: current_user.id)
     @medictasks = Medictask.where(user_id: current_user.id)
 
-    @docs = @docs.where("content like ?", "%#{params[:q]}%") if params[:q]
+    @docs = @docs.where("title like ?", "%#{params[:q]}%") if params[:q]
   end
 
   # GET /docs/1

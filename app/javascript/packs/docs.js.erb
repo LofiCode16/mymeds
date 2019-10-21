@@ -1,16 +1,17 @@
 $(document).on('turbolinks:load', function(){
   $('[name=q]').on('keyup', function(){
     //filtra
-    if ($(this).val().length > 2){
+    var q = $(this).val()
+    if (q.length > 2){
       $.ajax({
         type: "GET",
         url: "/docs",
-        data: { q: $(this).val() },
+        data: { q: q },
         dataType: "script"
       });
     };
     //Libera
-    if ($(this).val().length == 0){
+    if (q.length == 0){
       $.ajax({
         type: "GET",
         url: "/docs",
