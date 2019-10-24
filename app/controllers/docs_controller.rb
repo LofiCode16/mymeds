@@ -5,9 +5,9 @@ class DocsController < ApplicationController
   # GET /docs
   # GET /docs.json
   def index
-    @docs = Doc.where(user_id: current_user.id)
+    @docs = Doc.where(user_id: current_user.id).order(created_at: :desc)
     @medictasks = Medictask.where(user_id: current_user.id)
-
+    @doc = Doc.new
     @docs = @docs.where("title like ?", "%#{params[:q]}%") if params[:q]
   end
 
@@ -33,9 +33,9 @@ class DocsController < ApplicationController
 
     respond_to do |format|
       if @doc.save
-        format.html { redirect_to @doc, notice: 'Doc was successfully created.' }
-        format.json { render :show, status: :created, location: @doc }
-        format.js {}
+        format.html { redirect_to @docs, notice: 'Doc was successfully created.' }
+        format.json { render :index, status: :created, location: @docs }
+        format.js { redirect_to root_path, notice: 'Doc was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @doc.errors, status: :unprocessable_entity }

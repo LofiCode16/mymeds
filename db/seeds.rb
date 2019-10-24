@@ -9,14 +9,14 @@
 Doc.destroy_all
 
 
-20.times do |i|
+20.times do 
 
   Doc.create({
 
-    title: "Doc n°#{i}",
-    content: "esta es la descripcion del doumento",
-    photo: "http://lorempixel.com/400/200/sports/#{i}/",
-    user_id: 1
+    title: Faker::Lorem.sentence(word_count: 3),
+    content: Faker::Lorem.paragraph(sentence_count: 2),
+    photo: Faker::LoremPixel.image(size: "400x200", is_gray: false, category: 'food'),
+    user_id: User.last.id
   })
 
 

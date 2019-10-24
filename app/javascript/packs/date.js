@@ -1,8 +1,11 @@
-function hide (){
+$(document).on('ready turbolinks: load', function(){
 
-  var $date = document.getElementById('date');
+  var $date = $('[name=Done]');
 
-  $date.fadeOut();
+  $date.on('click', function(){
+
+    $(this).fadeOut(500);
+  })
 
 
-}
+})

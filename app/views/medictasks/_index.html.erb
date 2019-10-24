@@ -8,7 +8,7 @@
     <p class="card-text"><%= medictask.date %></p>
     <p class="card-text"><%= medictask.medic %></p>
     <p class="card-text"><%= medictask.speciality %></p>
-    <a href="#" class="btn btn-primary">Done</a>     
+    <%= link_to  "Done", medictasks_path(medictask), class: 'btn btn-primary', method: :patch, data: {notice: 'task completed'} %>     
   </div>
 </div> 
 

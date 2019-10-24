@@ -2,7 +2,9 @@
   <div class="col-sm-4 mt-4 offset-md-4">
   
     <div class="card">
-      <%= image_tag @doc.image, class: 'card-img-top' %>
+      <% if @doc.image.attached? %>
+        <%= image_tag @doc.image, class: 'card-img-top' %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= @doc.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words(@doc.created_at)%></h6>
