@@ -50,6 +50,8 @@ class DocsController < ApplicationController
       if @doc.update(doc_params)
         format.html { redirect_to @doc, notice: 'Doc was successfully updated.' }
         format.json { render :show, status: :ok, location: @doc }
+        format.js { redirect_to root_path, notice: 'Doc was successfully created.' }
+
       else
         format.html { render :edit }
         format.json { render json: @doc.errors, status: :unprocessable_entity }

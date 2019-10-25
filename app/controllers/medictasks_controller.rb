@@ -29,8 +29,9 @@ class MedictasksController < ApplicationController
 
     respond_to do |format|
       if @medictask.save
-        format.html { redirect_to @medictask, notice: 'Medictask was successfully created.' }
+        format.html { redirect_to @medictask, notice: 'Date was successfully created.' }
         format.json { render :show, status: :created, location: @medictask }
+        format.js { redirect_to root_path, notice: 'Date was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @medictask.errors, status: :unprocessable_entity }
