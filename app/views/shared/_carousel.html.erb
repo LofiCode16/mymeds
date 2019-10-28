@@ -1,4 +1,4 @@
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carouselExampleFade" class="carousel slide carousel-fade pt-4" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag  "servicios1.jpg", class: 'd-block w-100' %>
@@ -10,7 +10,7 @@
     <div class="carousel-item">
       <%= image_tag  "servicios2.jpg", class: 'd-block w-100' %>
       <div class="carousel-caption d-none d-md-block">
-        <p class="h2 text-light">No olvides visitar a tu médico!</p>
+        <p class="h2 text-dark">No olvides visitar a tu médico!</p>
         <%= link_to  "Agregar cita médica!", new_medictask_path, class: 'btn btn-primary mt-4', data: { remote: true} %>
       </div>
     </div>

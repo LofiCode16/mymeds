@@ -20,9 +20,9 @@
                 <% @members.each do |member| %>
                   <li><%= link_to  member.name, member, class: 'nav-link', data: {remote: true} %></li>
                 <% end %>
-                <%= link_to  "Add member +", new_member_path, class: 'list-group-item text-success', data: { remote: true} %>
               </ul>
             <% end %>  
+            <%= link_to  "Add member +", new_member_path, class: 'list-group-item text-success', data: { remote: true} %>
           </div>
         </li>
 
@@ -34,12 +34,11 @@
             <% if @medics.present?%>
               <ul class="list-group list-group-flush">
                 <% @medics.each do |medic| %>
-                  <li class="list-group-item"><%= link_to medic.name, medic, class: 'nav-link', data: {remote: true} %></li>
+                  <li><%= link_to medic.name, medic, class: 'nav-link', data: {remote: true} %></li>
                 <% end %>
               </ul>  
             <% end %>  
-            <div class="dropdown-divider"></div>
-            <%= link_to  "Add medic +", new_medic_path, class: 'dropdown-item text-success', data: { remote: true } %>
+            <%= link_to  "Add medic +", new_medic_path, class: 'list-group-item text-success', data: { remote: true } %>
           </div>
         </li>
 

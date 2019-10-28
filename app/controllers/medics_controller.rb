@@ -61,6 +61,7 @@ class MedicsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to medics_url, notice: 'Medic was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { redirect_to root_path, notice: 'Medic deleted'}
     end
   end
 

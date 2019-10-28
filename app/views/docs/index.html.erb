@@ -14,16 +14,9 @@
   </div>
 </div>
 
+<div class="row"> 
 
-
-
-<div class="row">
-
- 
-
-  
-
-  <div class="col-lg-10" >
+  <div class="col-lg-10 text-center" >
     <%= link_to 'New doc +', new_doc_path, class: 'btn btn-success mt-4', data: { remote: true} %>
 
     <div class="card-deck">
@@ -34,9 +27,9 @@
 
   </div>
 
-  <div class="col-lg-2">
+  <div class="col-lg-2 text-center">
 
-    <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success w-100 mt-4', data: {remote: true} %>
+    <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
     
     <%= render 'medictasks/index.html.erb'%>
 
