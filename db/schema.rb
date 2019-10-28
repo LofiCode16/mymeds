@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_28_152326) do
+=======
+ActiveRecord::Schema.define(version: 2019_10_28_172814) do
+>>>>>>> medics
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,16 +47,26 @@ ActiveRecord::Schema.define(version: 2019_10_28_152326) do
     t.index ["user_id"], name: "index_docs_on_user_id"
   end
 
+  create_table "medics", force: :cascade do |t|
+    t.string "rut"
+    t.string "name"
+    t.string "speciality"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_medics_on_user_id"
+  end
+
   create_table "medictasks", force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.datetime "date"
-    t.string "medic"
-    t.string "speciality"
     t.boolean "done", default: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "medic_id"
+    t.index ["medic_id"], name: "index_medictasks_on_medic_id"
     t.index ["user_id"], name: "index_medictasks_on_user_id"
   end
 
@@ -86,6 +100,8 @@ ActiveRecord::Schema.define(version: 2019_10_28_152326) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "docs", "users"
+  add_foreign_key "medics", "users"
+  add_foreign_key "medictasks", "medics"
   add_foreign_key "medictasks", "users"
   add_foreign_key "members", "users"
 end

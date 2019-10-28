@@ -25,6 +25,24 @@
             <% end %>  
           </div>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Medics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if @medics.present?%>
+              <ul class="list-group list-group-flush">
+                <% @medics.each do |medic| %>
+                  <li class="list-group-item"><%= link_to medic.name, medic, class: 'nav-link', data: {remote: true} %></li>
+                <% end %>
+              </ul>  
+            <% end %>  
+            <div class="dropdown-divider"></div>
+            <%= link_to  "Add medic +", new_medic_path, class: 'dropdown-item text-success', data: { remote: true } %>
+          </div>
+        </li>
+
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q"></form>
@@ -45,6 +63,7 @@
   </nav>
 <% end %>
 
+<<<<<<< HEAD
 <div class="modal" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -62,3 +81,6 @@
   </div>
 
 </div>
+=======
+<%= render 'shared/modal.html.erb' %>
+>>>>>>> medics
