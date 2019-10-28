@@ -33,7 +33,7 @@
             <% if @medics.present?%>
               <ul class="list-group list-group-flush">
                 <% @medics.each do |medic| %>
-                  <li class="list-group-item"><%= link_to medic.name, medic, class: 'nav-link' %></li>
+                  <li class="list-group-item"><%= link_to medic.name, medic, class: 'nav-link', data: {remote: true} %></li>
                 <% end %>
               </ul>  
             <% end %>  
