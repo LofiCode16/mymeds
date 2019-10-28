@@ -1,0 +1,25 @@
+<div class="row">        
+  <div class="col">
+  
+    <div class="card">
+      <% if @member.image.attached? %>
+        <%= image_tag @member.image, class: 'card-img-top' %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @member.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words(@member.created_at)%></h6>
+        <p class="card-text">Fecha nac: <%= @member.birth_date %></p>
+        <p class="card-text">Genero: <%= @member.genre %></p>
+
+        <%= link_to 'Edit', edit_member_path(@member), class: 'card-link', data: {remote: true}  %>
+        <%= link_to 'Destroy', @member, class: 'card-link', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <%= link_to 'Back', root_path, class: 'btn btn-primary mt-4' %>
+    </div>
+      
+  </div> 
+</div>
+
