@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :medics
   resources :medictasks
   resources :docs
   resources :members
