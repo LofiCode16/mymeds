@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_172814) do
+ActiveRecord::Schema.define(version: 2019_10_29_151730) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,7 +62,9 @@ ActiveRecord::Schema.define(version: 2019_10_28_172814) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "medic_id"
+    t.integer "member_id"
     t.index ["medic_id"], name: "index_medictasks_on_medic_id"
+    t.index ["member_id"], name: "index_medictasks_on_member_id"
     t.index ["user_id"], name: "index_medictasks_on_user_id"
   end
 
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_172814) do
   add_foreign_key "docs", "users"
   add_foreign_key "medics", "users"
   add_foreign_key "medictasks", "medics"
+  add_foreign_key "medictasks", "members"
   add_foreign_key "medictasks", "users"
   add_foreign_key "members", "users"
 end

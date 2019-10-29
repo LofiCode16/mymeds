@@ -6,8 +6,9 @@
       <h5 class="card-title"><%= medictask.title %></h5>
       <p class="card-text"><%= medictask.content %></p>
       <p class="card-text"><%= medictask.date %></p>
-      <p class="card-text"><%= medictask.medic.name %></p>
-      <p class="card-text"><%= medictask.medic.speciality %></p>
+      <p class="card-text">Paciente: <%= medictask.member.name %></p>
+      <p class="card-text">Medico: <%= medictask.medic.name %></p>
+      <p class="card-text">Especialidad: <%= medictask.medic.speciality %></p>
 
       <%= link_to  "Done", medictask,  class: 'btn btn-primary', method: :delete, data: { remote: true, notice: 'task completed'} %>   
     </div>
