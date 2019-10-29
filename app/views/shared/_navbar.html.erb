@@ -53,7 +53,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= image_tag current_user.image.variant(resize: "200x200"), class: 'img-thumbnail rounded mx-auto d-block' if current_user.image.present?%>
-              <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item', data: {remote: true} %>
               <%= link_to  "Logout", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
             </div>
           </li>       
