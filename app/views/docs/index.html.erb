@@ -14,24 +14,32 @@
   </div>
 </div>
 
-<div class="row"> 
+<div class="row">
 
-  <div class="col-lg-10 text-center" >
-    <%= link_to 'New doc +', new_doc_path, class: 'btn btn-success mt-4', data: { remote: true} %>
+  <% if @docs.count.zero?%>
+    <div class="col-sm-4 offset-sm-3">
+      <%= link_to 'Add your first doc!', new_doc_path, class: 'btn btn-success w-50 pt-5 pb-5 mt-4', data: { remote: true} %>
+    </div>  
+  <% else %>  
+    <div class="col-lg-10 text-center" >
+      <%= link_to 'New doc +', new_doc_path, class: 'btn btn-success mt-4', data: { remote: true} %>
 
-    <div class="card-deck">
-      <div class="row" id="docs">
-        <%= render @docs %>
-      </div>  
+      <div class="card-deck">
+        <div class="row" id="docs">
+          <%= render @docs %>
+        </div>  
+      </div>
+
     </div>
-
-  </div>
+  <% end %>  
 
   <div class="col-lg-2 text-center">
-
-    <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
-    
-    <%= render 'medictasks/index.html.erb'%>
+    <% if @medictasks.count.zero? %>
+        <%= link_to 'Add your first date!', new_medictask_path, class: 'btn btn-success w-100 pt-5 pb-5 mt-4', data: {remote: true} %>
+    <% else %>
+      <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
+      <%= render 'medictasks/index.html.erb'%>
+    <% end %>  
 
   </div>
 
