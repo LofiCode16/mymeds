@@ -6,19 +6,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Doc.destroy_all
-
-
-20.times do 
-
-  Doc.create({
-
-    title: Faker::Lorem.sentence(word_count: 3),
-    content: Faker::Lorem.paragraph(sentence_count: 2),
-    photo: Faker::LoremPixel.image(size: "400x200", is_gray: false, category: 'food'),
-    user_id: User.last.id
-  })
-
-
-
-end

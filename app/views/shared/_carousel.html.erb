@@ -1,26 +1,29 @@
-<div id="carouselExampleFade" class="carousel slide carousel-fade pt-4" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag  "servicios1.jpg", class: 'd-block w-100' %>
-      <div class="carousel-caption d-none d-md-block">
-        <p class="h2 text-dark">Todos tus documentos médicos en un solo lugar!</p>
-        <%= link_to  "Agrega tus examenes aqui!", new_doc_path, class: 'btn btn-primary mt-4', data: { remote: true} %>
-      </div>        
-    </div>
-    <div class="carousel-item">
-      <%= image_tag  "servicios2.jpg", class: 'd-block w-100' %>
-      <div class="carousel-caption d-none d-md-block">
-        <p class="h2 text-dark">No olvides visitar a tu médico!</p>
-        <%= link_to  "Agregar cita médica!", new_medictask_path, class: 'btn btn-primary mt-4', data: { remote: true} %>
+<% if user_signed_in? %>
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag  "servicios1.jpg", class: 'd-block w-100' %>
+        <div class="carousel-caption d-none d-md-block">
+          <p class="h2 text-dark">Todos tus exámenes en un solo lugar!</p>
+          <%= link_to  "Agrega tus examenes aqui!", new_doc_path, class: 'btn btn-primary mt-4', data: { remote: true} %>
+        </div>        
+      </div>
+      <div class="carousel-item">
+        <%= image_tag  "servicios2.jpg", class: 'd-block w-100' %>
+        <div class="carousel-caption d-none d-md-block">
+          <p class="h2 text-dark">No olvides visitar a tu médico!</p>
+          <%= link_to  "Agregar cita médica!", new_medictask_path, class: 'btn btn-primary mt-4', data: { remote: true} %>
+        </div>
       </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+<% end %>  
