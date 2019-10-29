@@ -9,9 +9,13 @@
         <a href="#carouselExampleFade" class="btn btn-primary">Ir arriba</a>
       <% end %>  
     </div>
-    <% if user_signed_in? && current_user.last_sign_in_at.present? %>
+    <%
+=begin%>
+ <% if user_signed_in? && current_user.last_sign_in_at.present?%>
       <div class="card-footer text-muted">
-        Ultima vez: <%= time_ago_in_words(current_user.last_sign_in_at)%>
+        Ultima vez: <%= current_user.last_sign_in_at %>
       </div>
-    <% end %>  
+    <% end %>   
+<%
+=end%>
   </div>
