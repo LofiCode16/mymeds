@@ -5,6 +5,7 @@ class MedictasksController < ApplicationController
   # GET /medictasks.json
   def index
     @medictasks = Medictask.where(user_id: current_user.id)
+    @medics = Medic.where(user_id: current_user.id)
   end
 
   # GET /medictasks/1
@@ -61,6 +62,7 @@ class MedictasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to medictasks_url, notice: 'Medictask was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {redirect_to root_path, notice: 'Date completed'}
     end
   end
 
@@ -72,6 +74,6 @@ class MedictasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medictask_params
-      params.require(:medictask).permit(:title, :content, :date, :medic, :speciality, :done, :user_id)
+      params.require(:medictask).permit(:title, :content, :date, :medic, :speciality, :done, :user_id, :medic_id)
     end
 end

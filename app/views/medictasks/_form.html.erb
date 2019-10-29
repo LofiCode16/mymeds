@@ -31,12 +31,7 @@
 
   <div class="field">
     <%= form.label :medic %>
-    <%= form.select :medic, options_for_select([['Medic 1'],['Medic 2'],['Medic 3']], class: 'custom-select') %><br>
-  </div><br>
-
-  <div class="field">
-    <%= form.label :speciality %>
-    <%= form.select :speciality, options_for_select([['Speciality 1'],['Speciality 2'],['Speciality 3']], class: 'custom-select') %><br>
+    <%= form.select :medic_id, Medic.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
   </div><br>
 
   <div class="actions text-center">
