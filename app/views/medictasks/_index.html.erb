@@ -1,15 +1,15 @@
 <% @medictasks.each do |medictask| %>
 
-  <div class="card mt-3" id="date">
+  <div class="card mt-3">
     
     <div class="card-body">
       <h5 class="card-title"><%= medictask.title %></h5>
       <p class="card-text"><%= medictask.content %></p>
       <p class="card-text"><%= medictask.date %></p>
-      <p class="card-text"><%= medictask.medic %></p>
-      <p class="card-text"><%= medictask.speciality %></p>
+      <p class="card-text"><%= medictask.medic.name %></p>
+      <p class="card-text"><%= medictask.medic.speciality %></p>
 
-      <%= link_to  "Done", completed_medictask_path(medictask.id), id: 'done', class: 'btn btn-primary', method: :patch, data: {remote: true, notice: 'task completed'} %>   
+      <%= link_to  "Done", medictask,  class: 'btn btn-primary', method: :delete, data: { remote: true, notice: 'task completed'} %>   
     </div>
   </div>
 
