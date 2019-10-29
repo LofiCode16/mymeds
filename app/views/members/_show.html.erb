@@ -3,7 +3,7 @@
   
     <div class="card">
       <% if @member.image.attached? %>
-        <%= image_tag @member.image, class: 'card-img-top' %>
+        <%= image_tag @member.image.variant(resize: '300x300'), class: 'card-img-top' %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= @member.name %></h5>
