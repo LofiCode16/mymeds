@@ -74,6 +74,6 @@ class MedictasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medictask_params
-      params.require(:medictask).permit(:title, :content, :date, :medic, :speciality, :done, :user_id, :medic_id)
+      params.require(:medictask).permit(:title, :content, :date, :medic, :speciality, :done, :user_id, :medic_id, :member_id)
     end
 end

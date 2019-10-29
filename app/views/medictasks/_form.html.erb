@@ -34,6 +34,12 @@
     <%= form.select :medic_id, Medic.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
   </div><br>
 
+  <div class="field">
+    <%= form.label :member %>
+    <%= form.select :member_id, Member.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
+  </div><br>
+  
+
   <div class="actions text-center">
     <%= form.submit 'Create', class: 'btn btn-success' %>
   </div>
