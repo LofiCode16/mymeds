@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one_attached :image, dependent: :destroy  
   has_many :medictasks, dependent: :destroy
   has_many :medics, through: :medictasks, dependent: :destroy
+  validates :name, presence: :true
 
 
   def self.from_omniauth(auth)
