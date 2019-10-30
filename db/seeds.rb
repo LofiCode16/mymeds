@@ -6,21 +6,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
-Doc.destroy_all
-
-20.times do |i|
-
-  Doc.create({
-
-    title: "Doc n°#{i}",
-    content: "esta es la descripcion del doumento",
-    photo: "http://lorempixel.com/400/200/sports/#{i}/",
-    user_id: User.last
-  })
-
-
-
-end
-=======
->>>>>>> development
