@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ @media (min-width: 800px){
+  #doc_link, #date_link{
+    display: none;
+  }
+}
