@@ -26,7 +26,7 @@ User.create({
 
 5.times do |i|
   Doc.create({
-    title: ex[i],
+    title: "#{ex[i]}",
     content: 'examenes guardados para proximas visitas',
     user_id: User.last
   })
@@ -34,20 +34,26 @@ end
 
 3.times do |i|
   Member.create({
-    name: member[i],
+    name: "#{member[i]}",
     user_id: User.last
   })
 end
 
-Medic.create({ rut: '4.223.332-6', name: 'Dr. Chapatin', speciality: 'General', user_id: User.last})
+Medic.create({ 
+  rut: '4.223.332-6', 
+  name: 'Dr. Chapatin', 
+  speciality: 'General', 
+  user_id: User.last
+})
+Medic.save
 
 3.times do |i|
   Medictask.create({
-    title: date_title[i],
-    content: date_content[i],
+    title: "#{date_title[i]}",
+    content: "#{date_content[i]}",
     date: Date.current,
     user_id: User.last,
     medic_id: Medic.last,
-    memebr_id: Member.sample
+    member_id: Member.all.sample
   })
 end
