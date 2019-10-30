@@ -19,3 +19,10 @@
     display: none;
   }
 }
+
+body{
+  background-image: url("back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
