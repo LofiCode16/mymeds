@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MedDocs</title>
+    <title>Mymeds</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -20,14 +23,19 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0&appId=1065253513816137&autoLogAppEvents=1"></script>
     
     <%= render 'shared/navbar' %>
+    <%= render 'shared/carousel' %>
 
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5 pt-5" id="top">
 
       <%= render 'shared/alert' %>
 
       <%= yield %>
     </div>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="col-md-4 mt-4"id="doc_<%= doc.id %>">
+  <div class="card">
+    <% if doc.image.attached? %>
+      <%= image_tag doc.image.variant(resize: '800x800'), class: 'card-img-top' %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= doc.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words(doc.created_at)%></h6>
+      <p class="card-text text-truncate"><%= doc.content %></p>
+      <%= link_to 'Show', doc, class: 'card-link', data: { remote: true } %>
+      <%= link_to 'Edit', edit_doc_path(doc), class: 'card-link', data: { remote: true }  %>
+      <%= link_to 'Destroy', doc, class: 'card-link text-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
+    </div>
+  </div>
+</div>
+  
+  

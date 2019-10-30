@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-6 offset-lg-3">
+  <div class="col">
       
     <%= render "devise/shared/error_messages", resource: resource %>
     <h2 class="text-center">Edit <%= resource_name.to_s.humanize %></h2>
@@ -22,10 +22,7 @@
             <%= f.label :name %><br />
             <%= f.text_field :name, class: 'form-control', autocomplete: "name" %>
           </div>
-          <div class="col">  
-            <%= f.label :last %><br />
-            <%= f.text_field :last, class: 'form-control', autocomplete: "last" %>
-          </div>
+          
         </div>  
       </div><br />
 
@@ -68,9 +65,7 @@
 
 
       <div class="actions text-center">
-        <%= f.submit "Update", class: 'btn btn-success mt-1' %>
-        
-    <%= link_to "Back", root_path %>
+        <%= f.submit "Update", class: 'btn btn-success mt-1' %>        
       </div>
     <% end %><br />
 
@@ -83,3 +78,4 @@
 
   </div>
 </div>
+

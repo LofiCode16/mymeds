@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut: MyString
+  name: MyString
+  speciality: MyString
+
+two:
+  rut: MyString
+  name: MyString
+  speciality: MyString

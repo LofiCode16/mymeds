@@ -1,8 +1,10 @@
 <div class="row">        
-  <div class="col-sm-4 mt-4 offset-md-4">
+  <div class="col">
   
     <div class="card">
-      <%= image_tag @doc.image, class: 'card-img-top' %>
+      <% if @doc.image.attached? %>
+        <%= image_tag @doc.image, class: 'card-img-top' %>
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= @doc.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words(@doc.created_at)%></h6>
@@ -11,8 +13,11 @@
         <%= link_to 'Destroy', @doc, class: 'card-link', method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
-  
-<%= link_to 'Back', docs_path, class: 'btn btn-primary mt-4' %>
+
+    <div class="text-center">
+      <%= link_to 'Back', docs_path, class: 'btn btn-primary mt-4' %>
+    </div>
+      
   </div> 
 </div>
 

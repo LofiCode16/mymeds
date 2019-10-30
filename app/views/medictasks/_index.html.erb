@@ -1,16 +1,36 @@
 <% @medictasks.each do |medictask| %>
-      
-<div class="card">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= medictask.title %></h5>
-    <p class="card-text"><%= medictask.content %></p>
-    <p class="card-text"><%= medictask.date %></p>
-    <p class="card-text"><%= medictask.medic %></p>
-    <p class="card-text"><%= medictask.speciality %></p>
-    <a href="#" class="btn btn-primary">Done</a>     
+
+  <div class="card mt-3">
+    
+    <div class="card-body">
+      <h5 class="card-title"><%= medictask.title %></h5>
+      <p class="card-text"><%= medictask.content %></p>
+      <p class="card-text"><%= medictask.date %></p>
+      <p class="card-text">Paciente: <%= medictask.member.name %></p>
+      <p class="card-text">Medico: <%= medictask.medic.name %></p>
+      <p class="card-text">Especialidad: <%= medictask.medic.speciality %></p>
+
+      <%= link_to  "Done", medictask,  class: 'btn btn-primary', method: :delete, data: { remote: true, notice: 'task completed'} %>   
+    </div>
   </div>
-</div> 
 
-<% end %>
+<% end %>  
 
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

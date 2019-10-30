@@ -1,0 +1,21 @@
+  <div class="card text-center mt-5 align-bottom <%= 'fixed-bottom' if current_page?(new_user_session_path)%>">
+    <div class="card-header">
+      Mymeds
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">¿Necesitas ayuda?</h5>
+      <p class="card-text">Entra a nuestro <a href="https://github.com/diegoski007/mymeds">Github</a> y conócenos! </p>
+      <% if user_signed_in? %>
+        <a href="#carouselExampleFade" class="btn btn-primary">Ir arriba</a>
+      <% end %>  
+    </div>
+    <%
+=begin%>
+ <% if user_signed_in? && current_user.last_sign_in_at.present?%>
+      <div class="card-footer text-muted">
+        Ultima vez: <%= current_user.last_sign_in_at %>
+      </div>
+    <% end %>   
+<%
+=end%>
+  </div>

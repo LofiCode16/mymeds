@@ -1,0 +1,14 @@
+<div class="mt-4" id="medictask_<%= medictask.id %>">
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= medictask.title %></h5>
+      <p class="card-text"><%= medictask.content %></p>
+      <p class="card-text"><%= medictask.date %></p>
+      <p class="card-text"><%= medictask.medic %></p>
+      <p class="card-text"><%= medictask.speciality %></p>
+      <%= link_to  "Done", medictasks_path(medictask), class: 'btn btn-primary', method: :patch, data: {notice: 'task completed'} %>     
+    </div>
+  </div> 
+
+</div>  

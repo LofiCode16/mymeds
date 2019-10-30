@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Name</th>
+      <th>Speciality</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medics.each do |medic| %>
+      <tr>
+        <td><%= medic.rut %></td>
+        <td><%= medic.name %></td>
+        <td><%= medic.speciality %></td>
+        <td><%= link_to 'Show', medic %></td>
+        <td><%= link_to 'Edit', edit_medic_path(medic) %></td>
+        <td><%= link_to 'Destroy', medic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medic', new_medic_path %>
+
+<%= render 'shared/modal.html.erb' %>

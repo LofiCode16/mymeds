@@ -1,7 +1,7 @@
 <div class="row"> 
-  <div class="col-lg-4 offset-lg-4"><br/>
+  <div class="col"><br/>
 
-<%= form_with(model: medictask, local: true) do |form| %>
+<%= form_with(model: medictask) do |form| %>
   <% if medictask.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(medictask.errors.count, "error") %> prohibited this medictask from being saved:</h2>
@@ -31,13 +31,14 @@
 
   <div class="field">
     <%= form.label :medic %>
-    <%= form.select :medic, options_for_select([['Medic 1'],['Medic 2'],['Medic 3']], class: 'custom-select') %><br>
+    <%= form.select :medic_id, Medic.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
   </div><br>
 
   <div class="field">
-    <%= form.label :speciality %>
-    <%= form.select :speciality, options_for_select([['Speciality 1'],['Speciality 2'],['Speciality 3']], class: 'custom-select') %><br>
+    <%= form.label :member %>
+    <%= form.select :member_id, Member.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
   </div><br>
+  
 
   <div class="actions text-center">
     <%= form.submit 'Create', class: 'btn btn-success' %>

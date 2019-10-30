@@ -1,61 +1,45 @@
-<h1>Docs</h1>
-
-
-<div class="row">
-  <div class="col-lg-2">
-    <%= link_to 'New doc +', new_doc_path, class: 'btn btn-success w-100 mt-4' %>
-
-  </div>
-  
-
-  <div class="col-lg-8">
-
-    <div class="card-deck">
-      <div class="row" id="docs">
-        <% @docs.each do |doc| %>
-        
-          <div class="col-sm-6 mt-4">
-            <div class="card">
-              <% if doc.image.attached? %>
-                <%= image_tag doc.image, class: 'card-img-top' %>
-              <% end %>
-              <div class="card-body">
-                <h5 class="card-title"><%= doc.title %></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%= time_ago_in_words(doc.created_at)%></h6>
-                <p class="card-text text-truncate"><%= doc.content %></p>
-                <%= link_to 'Show', doc, class: 'card-link' %>
-                <%= link_to 'Edit', edit_doc_path(doc), class: 'card-link'  %>
-                <%= link_to 'Destroy', doc, class: 'card-link text-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-            </div>
-          </div>
-            
-        <%end%>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
       </div>
     </div>
-
   </div>
+</div>
 
-   <div class="col-lg-2">
+<div class="row">
 
-    <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success w-100 mt-4' %>
-    
-    <% @medictasks.each do |medictask| %>
-      
-    <div class="card mt-3" id="date">
-      
-      <div class="card-body">
-        <h5 class="card-title"><%= medictask.title %></h5>
-        <p class="card-text"><%= medictask.content %></p>
-        <p class="card-text"><%= medictask.date %></p>
-        <p class="card-text"><%= medictask.medic %></p>
-        <p class="card-text"><%= medictask.speciality %></p>
+  <% if @docs.count.zero?%>
+    <div class="col-sm-4 offset-sm-3">
+      <%= link_to 'Add your first doc!', new_doc_path, class: 'btn btn-success w-50 pt-5 pb-5 mt-4', data: { remote: true} %>
+    </div>  
+  <% else %>  
+    <div class="col-lg-10 text-center" >
+      <%= link_to 'New doc +', new_doc_path, class: 'btn btn-success mt-4', data: { remote: true} %>
 
-        <%= link_to  "Done", completed_medictask_path(medictask.id), class: 'btn btn-primary', method: :patch %>   
+      <div class="card-deck">
+        <div class="row" id="docs">
+          <%= render @docs %>
+        </div>  
       </div>
-    </div> 
 
-<% end %>
+    </div>
+  <% end %>  
+
+  <div class="col-lg-2 text-center">
+    <% if @medictasks.count.zero? %>
+        <%= link_to 'Add your first date!', new_medictask_path, class: 'btn btn-success w-100 pt-5 pb-5 mt-4', data: {remote: true} %>
+    <% else %>
+      <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
+      <%= render 'medictasks/index.html.erb'%>
+    <% end %>  
 
   </div>
 

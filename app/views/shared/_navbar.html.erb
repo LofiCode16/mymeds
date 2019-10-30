@@ -16,15 +16,35 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if @members.present?%>
-              <% @members.each do |member| %>
-                <%= member.name %>
-              <% end %>
+              <ul class="list-group list-group-flush">
+                <% @members.each do |member| %>
+                  <li><%= link_to  member.name, member, class: 'nav-link', data: {remote: true} %></li>
+                <% end %>
+              </ul>
             <% end %>  
-            <div class="dropdown-divider"></div>
-            <%= link_to  "Add member +", new_member_path, class: 'dropdown-item' %>
+            <%= link_to  "Add member +", new_member_path, class: 'list-group-item text-success', data: { remote: true} %>
           </div>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Medics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if @medics.present?%>
+              <ul class="list-group list-group-flush">
+                <% @medics.each do |medic| %>
+                  <li><%= link_to medic.name, medic, class: 'nav-link', data: {remote: true} %></li>
+                <% end %>
+              </ul>  
+            <% end %>  
+            <%= link_to  "Add medic +", new_medic_path, class: 'list-group-item text-success', data: { remote: true } %>
+          </div>
+        </li>
+
       </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q"></form>
       <div>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
@@ -33,7 +53,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= image_tag current_user.image.variant(resize: "200x200"), class: 'img-thumbnail rounded mx-auto d-block' if current_user.image.present?%>
-              <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item', data: {remote: true} %>
               <%= link_to  "Logout", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
             </div>
           </li>       
@@ -41,3 +61,5 @@
     </div>
   </nav>
 <% end %>
+
+<%= render 'shared/modal.html.erb' %>

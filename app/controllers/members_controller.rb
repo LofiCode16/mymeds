@@ -32,6 +32,7 @@ class MembersController < ApplicationController
       if @member.save
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
+        format.js { redirect_to root_path, notice: 'Member added!'}
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -46,6 +47,7 @@ class MembersController < ApplicationController
       if @member.update(member_params)
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
+        format.js {redirect_to root_path, notice: 'Member updated!'}
       else
         format.html { render :edit }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -60,6 +62,7 @@ class MembersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { redirect_to root_path, notice: 'Member deleted'}
     end
   end
 
@@ -71,6 +74,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :birth_date, :genre)
+      params.require(:member).permit(:name, :birth_date, :genre, :image)
     end
 end
