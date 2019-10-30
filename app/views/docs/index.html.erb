@@ -15,6 +15,16 @@
 </div>
 
 <div class="row">
+    <% if @medictasks.count.zero? && @docs.count.zero?%>
+      <div class="col-lg-6 text-center">
+        <%= link_to 'Add your first date!', new_medictask_path, class: 'btn btn-success w-20 pt-5 pb-5 mt-4', data: {remote: true} %>
+      </div>
+    <% else %>
+      <div class="col-lg-2 text-center">
+        <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
+        <%= render 'medictasks/index.html.erb'%>
+      </div>
+    <% end %>  
 
   <% if @docs.count.zero?%>
     <div class="col-lg-6 text-center">
@@ -33,16 +43,6 @@
     </div>
   <% end %>  
 
-    <% if @medictasks.count.zero? && @docs.count.zero?%>
-      <div class="col-lg-6 text-center">
-        <%= link_to 'Add your first date!', new_medictask_path, class: 'btn btn-success w-20 pt-5 pb-5 mt-4', data: {remote: true} %>
-      </div>
-    <% else %>
-      <div class="col-lg-2 text-center">
-        <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
-        <%= render 'medictasks/index.html.erb'%>
-      </div>
-    <% end %>  
 
   
 
