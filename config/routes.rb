@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  root to: 'docs#index'
   resources :medics
   resources :medictasks
   resources :docs
@@ -7,6 +10,4 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  patch 'completed_medictasks/:medictask_id', to: 'completed_medictasks#update', as: 'completed_medictask'
-  root to: 'docs#index'
 end
