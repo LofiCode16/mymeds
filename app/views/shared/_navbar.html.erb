@@ -44,15 +44,16 @@
 
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q"></form>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+      </form>
       <div>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" style="padding-left: 4rem; padding-right: 4rem;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="nav-item"> <%= image_tag current_user.image.variant(resize: '32x32'), class: 'img-thumbnail img-fluid circle rounded-circle' if current_user.image.present? %> Welcome <%= current_user.name %>!</span> 
+              <span class="nav-item"> <%= image_tag current_user.image.variant(resize: '32x32'), class: 'img-thumbnail img-fluid circle rounded-circle', style: 'width: 32px; height: 32px' if current_user.image.present? %> Welcome <%= current_user.name %>!</span> 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= image_tag current_user.image.variant(resize: "200x200"), class: 'img-thumbnail rounded mx-auto d-block' if current_user.image.present?%>
+              <%= image_tag current_user.image.variant(resize: "200x200"), class: 'img-thumbnail rounded mx-auto d-block', style: 'width: 280px; height: 220px' if current_user.image.present?%>
               <%= link_to  "Edit Profile", edit_user_registration_path, class: 'dropdown-item', data: {remote: true} %>
               <%= link_to  "Logout", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
             </div>
