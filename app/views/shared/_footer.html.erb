@@ -5,6 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">¿Necesitas ayuda?</h5>
       <p class="card-text">Entra a nuestro <a href="https://github.com/diegoski007/mymeds">Github</a> y conócenos! </p>
+      <%= link_to  "Intranet", new_admin_user_session_path, class: 'card-link' %>
       <% if user_signed_in? %>
         <a href="#carouselExampleFade" class="btn btn-primary">Ir arriba</a>
       <% end %>  
