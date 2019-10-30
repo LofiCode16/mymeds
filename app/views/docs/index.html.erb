@@ -39,7 +39,7 @@
       </div>
     <% else %>
       <div class="col-lg-2 text-center">
-        <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', data: {remote: true} %>
+        <%= link_to 'New date +', new_medictask_path, class: 'btn btn-success mt-4', id: 'dates', data: {remote: true} %>
         <%= render 'medictasks/index.html.erb'%>
       </div>
     <% end %>  
