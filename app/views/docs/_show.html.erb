@@ -3,7 +3,7 @@
   
     <div class="card">
       <% if @doc.image.attached? %>
-        <%= image_tag @doc.image, class: 'card-img-top' %>
+        <%= image_tag @doc.image, class: 'card-img-top', downloadable: true %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= @doc.title %></h5>

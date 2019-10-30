@@ -6,7 +6,11 @@
       <h5 class="card-title"><%= medictask.title %></h5>
       <p class="card-text"><%= medictask.content %></p>
       <p class="card-text"><%= medictask.date %></p>
-      <p class="card-text">Paciente: <%= medictask.member.name %></p>
+      <% if medictask.member.name.present? %>
+        <p class="card-text">Paciente: <%= medictask.member.name %></p>
+      <% else %>
+        <p class="card-text">Paciente: Yo</p>
+      <% end %>
       <p class="card-text">Medico: <%= medictask.medic.name %></p>
       <p class="card-text">Especialidad: <%= medictask.medic.speciality %></p>
 
