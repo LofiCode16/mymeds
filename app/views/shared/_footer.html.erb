@@ -11,7 +11,7 @@
       <% end %>  
     </div>
       <div class="card-footer text-muted">
-        <%= link_to  "Intranet", new_admin_user_session_path, class: 'card-link' %>
+        <%= link_to  "Intranet", new_admin_user_session_path, class: 'card-link' unless user_signed_in? %>
       </div>
     <%
 =begin%>
