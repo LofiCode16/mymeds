@@ -12,7 +12,7 @@ Medictask.destroy_all
 Doc.destroy_all
 User.destroy_all
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 ex = ['presion', 'vacunas', 'scanner', 'chequeo', 'vista']
 member = ['Cata', 'Marcelo', 'Luis']
 date_title = ['examen', 'dentista', 'escaner']
@@ -24,18 +24,20 @@ User.create({
   password: '123123'
 })
 
+
+
 5.times do |i|
   Doc.create({
     title: "#{ex[i]}",
     content: 'examenes guardados para proximas visitas',
-    user_id: User.last
+    user_id: User.last.id
   })
 end
 
 3.times do |i|
   Member.create({
     name: "#{member[i]}",
-    user_id: User.last
+    user_id: User.last.id
   })
 end
 
@@ -43,17 +45,17 @@ Medic.create({
   rut: '4.223.332-6', 
   name: 'Dr. Chapatin', 
   speciality: 'General', 
-  user_id: User.last
+  user_id: User.last.id
 })
-Medic.save
+
 
 3.times do |i|
   Medictask.create({
     title: "#{date_title[i]}",
     content: "#{date_content[i]}",
     date: Date.current,
-    user_id: User.last,
-    medic_id: Medic.last,
-    member_id: Member.all.sample
+    user_id: User.last.id,
+    medic_id: Medic.last.id,
+    member_id: Member.all.sample.id
   })
 end

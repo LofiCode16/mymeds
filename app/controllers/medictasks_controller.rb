@@ -4,7 +4,7 @@ class MedictasksController < ApplicationController
   # GET /medictasks
   # GET /medictasks.json
   def index
-    @medictasks = Medictask.where(user_id: current_user.id)
+    @members = Member.where(user_id: current_user.id)
     @medics = Medic.where(user_id: current_user.id)
   end
 
@@ -16,6 +16,8 @@ class MedictasksController < ApplicationController
   # GET /medictasks/new
   def new
     @medictask = Medictask.new
+    @members = Member.where(user_id: current_user.id)
+    @medics = Medic.where(user_id: current_user.id)
   end
 
   # GET /medictasks/1/edit

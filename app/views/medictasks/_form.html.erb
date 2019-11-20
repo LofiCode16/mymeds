@@ -31,12 +31,12 @@
 
   <div class="field">
     <%= form.label :medic %>
-    <%= form.select :medic_id, Medic.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
+    <%= form.select :medic_id, @medics.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
   </div><br>
 
   <div class="field">
     <%= form.label :member %>
-    <%= form.select :member_id, Member.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
+    <%= form.select :member_id, @members.pluck(:name, :id), class: 'custom-select', prompt: 'Seleccione...' %><br>
   </div><br>
   
 
