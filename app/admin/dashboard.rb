@@ -9,6 +9,17 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
+    panel 'Gráfico docs creados' do
+      render 'shared/chartDocs'
+    end  
+
+    panel 'Gráfico dates creados' do
+      render 'shared/chartDates'
+    end 
+
+    panel 'Gráfico usuarios creados' do
+      render 'shared/chartUsers'
+    end 
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
