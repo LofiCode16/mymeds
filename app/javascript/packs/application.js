@@ -6,6 +6,8 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+require("chartkick")
+require("chart.js")
 require("channels")
 require("packs/docs.js.erb")
 

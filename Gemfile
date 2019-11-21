@@ -7,6 +7,8 @@ gem 'devise'
 gem 'faker'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
+gem 'chartkick'
+gem 'groupdate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use sqlite3 as the database for Active Record
