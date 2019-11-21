@@ -1,4 +1,4 @@
-<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js"%>
 
 <%= column_chart Medictask.group_by_day(:created_at).count %>
 

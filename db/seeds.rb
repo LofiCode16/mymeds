@@ -14,48 +14,56 @@ User.destroy_all
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 ex = ['presion', 'vacunas', 'scanner', 'chequeo', 'vista']
-member = ['Cata', 'Marcelo', 'Luis']
 date_title = ['examen', 'dentista', 'escaner']
 date_content = ['chequeo medico', 'sacar muela del juicio', 'escaner para descartar enfermedades por molestias fisicas']
 
-User.create({
-  name: 'Diego Perez',
-  email: 'diego@mail.com',
-  password: '123123'
-})
+15.times do |i|
+  User.create({
+    name: "Diego#{i}",
+    email: "diego#{i}@mail.com",
+    password: '123123',
+    created_at: Faker::Number.number(digits: 1).to_i.day.ago
+  })
+end
 
 
 
-5.times do |i|
+60.times do |i|
   Doc.create({
-    title: "#{ex[i]}",
+    title: "#{ex.sample}",
     content: 'examenes guardados para proximas visitas',
-    user_id: User.last.id
+    user_id: User.all.sample.id,
+    created_at: Faker::Number.number(digits: 1).to_i.day.ago
   })
 end
 
-3.times do |i|
+45.times do |i|
   Member.create({
-    name: "#{member[i]}",
-    user_id: User.last.id
+    name: Faker::Name.name,
+    user_id: User.all.sample.id,    
+    created_at: Faker::Number.number(digits: 1).to_i.day.ago
   })
 end
 
-Medic.create({ 
-  rut: '4.223.332-6', 
-  name: 'Dr. Chapatin', 
-  speciality: 'General', 
-  user_id: User.last.id
-})
+13.times do 
+  Medic.create({ 
+    rut: Faker::ChileRut.full_rut, 
+    name: Faker::Name.name, 
+    speciality: 'General', 
+    user_id: User.all.sample.id,    
+    created_at: Faker::Number.number(digits: 1).to_i.day.ago
+  })
+end
 
 
-3.times do |i|
+45.times do |i|
   Medictask.create({
-    title: "#{date_title[i]}",
-    content: "#{date_content[i]}",
+    title: "#{date_title.sample}",
+    content: "#{date_content.sample}",
     date: Date.current,
-    user_id: User.last.id,
+    user_id: User.all.sample.id,
     medic_id: Medic.last.id,
-    member_id: Member.all.sample.id
+    member_id: Member.all.sample.id,    
+    created_at: Faker::Number.number(digits: 1).to_i.day.ago
   })
 end
