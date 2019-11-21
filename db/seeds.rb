@@ -19,7 +19,7 @@ date_content = ['chequeo medico', 'sacar muela del juicio', 'escaner para descar
 
 15.times do |i|
   User.create({
-    name: "Diego#{i}",
+    name: Faker::Name.name,
     email: "diego#{i}@mail.com",
     password: '123123',
     created_at: Faker::Number.number(digits: 1).to_i.day.ago
